@@ -122,3 +122,63 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# LocMenCache 
+# https://docs.djangoproject.com/en/5.2/topics/cache/#using-locmemcache
+# https://docs.djangoproject.com/en/5.2/topics/cache/#memcached 
+
+# CACHE = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+#         'LOCATION': 'unique-snowflake', # Unique identifier for the cache location
+#     },
+# }
+
+
+# 2-FileBased Cache
+# https://docs.djangoproject.com/en/5.2/topics/cache/#filebased-cache
+
+# CACHE = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/var/tmp/django_cache', # Directory where cache files will be stored  
+#     },
+# }
+
+
+# 3-Database Cache
+# https://docs.djangoproject.com/en/5.2/topics/cache/#database-cache
+
+# CACHE = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_cache_table', # Name of the database table to store cache data
+       
+#     },
+# }
+
+
+# 4-Memcached Cache
+# https://docs.djangoproject.com/en/5.2/topics/cache/#memcached
+
+ 
+# CACHE = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+#         'LOCATION': '127.0.0.1:11211', # Address of the Memcached server
+#     }
+# }
+
+# 5-Redis Cache
+# https://docs.djangoproject.com/en/5.2/topics/cache/#redis
+
+CACHE = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': "redis://127.0.1:6379/1", # Address of the Redis server
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+    }
+}
